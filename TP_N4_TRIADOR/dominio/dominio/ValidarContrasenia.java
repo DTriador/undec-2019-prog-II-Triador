@@ -12,4 +12,9 @@ public class ValidarContrasenia {
 			return true;
 	}
 
+	public static boolean DosLetrasMinuscula(String passNoValida01) {
+		(passNoValida01.length()?:*[a-z]){2}
+		return true;
+	}
+
 }

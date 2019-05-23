@@ -86,5 +86,40 @@ class TestLogin {
 		assertEquals(true, actual09);
 		
 	}
-
+	@Test
+	void test02ContraseniaNoValida_DosLetrasMinuscula() {
+		//Arrange
+		String passNoValida01 = "1234567890";
+		String passNoValida02 = "12345678901";
+		String passNoValida03 = "123456789012";
+		String passNoValida04 = "1234567890123";
+		String passNoValida05 = "12345678901234";
+		String passNoValida06 = "123456789012345";
+		String passNoValida07 = "1234567890123456";
+		String passNoValida08 = "12345678901234567";
+		String passNoValida09 = "123456789012345678";
+		
+		//Act
+		boolean actual01 = ValidarContrasenia.DosLetrasMinuscula(passNoValida01);
+		boolean actual02 = ValidarContrasenia.DosLetrasMinuscula(passNoValida02);
+		boolean actual03 = ValidarContrasenia.DosLetrasMinuscula(passNoValida03);
+		boolean actual04 = ValidarContrasenia.DosLetrasMinuscula(passNoValida04);
+		boolean actual05 = ValidarContrasenia.DosLetrasMinuscula(passNoValida05);
+		boolean actual06 = ValidarContrasenia.DosLetrasMinuscula(passNoValida06);
+		boolean actual07 = ValidarContrasenia.DosLetrasMinuscula(passNoValida07);
+		boolean actual08 = ValidarContrasenia.DosLetrasMinuscula(passNoValida08);
+		boolean actual09 = ValidarContrasenia.DosLetrasMinuscula(passNoValida09);
+				
+		//Assert
+		assertEquals(false, actual01);
+		assertEquals(false, actual02);
+		assertEquals(false, actual03);
+		assertEquals(false, actual04);
+		assertEquals(false, actual05);
+		assertEquals(false, actual06);
+		assertEquals(false, actual07);
+		assertEquals(false, actual08);
+		assertEquals(false, actual09);
+		assertEquals(false, actual10);
+		assertEquals(false, actual11);
 }
