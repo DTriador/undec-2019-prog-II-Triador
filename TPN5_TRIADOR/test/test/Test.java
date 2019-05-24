@@ -59,9 +59,9 @@ class Test {
 	}
 	void test04() {
 		//Arrange Preparo el codigo
-		Materia c01 = new Materia("Programacion", "Prog.","II");
-		Materia c02 = new Materia("Sistemas II", "Prog.","II");
-		Materia c03 = new Materia("Programacion", "Program.","III");
+		Materia c01 = new Materia("Programacion", "Prog.", AnioAcademico.I);
+		Materia c02 = new Materia("Sistemas II", "Prog.",AnioAcademico.II);
+		Materia c03 = new Materia("Programacion", "Program.", AnioAcademico.III);
 		
 		//Act    Ejecuta
 		
@@ -72,6 +72,36 @@ class Test {
 		assertEquals(false, actual01);
 		assertEquals(true, actual02);
 	}
-	
+	void test05_AgregarMaterias() {
+		//Arrange Preparo el codigo
+		Carrera c01 = new Carrera("Licenciatura en Sistemas", "Lic. Sist.","071/08");	
+		Materia m01 = new Materia("Programacion II", "Prog.",AnioAcademico.III);
+		String listadoMaterias[] = {"Programacion II"};
+		
+		//Act    Ejecuta
+		
+		boolean actual01= c01.addMateria(m01);
+		String [] actual02= c01.getMateria(AnioAcademico.III);
+		
+		//Assert Controla
+		assertEquals(false, actual01);
+		assertEquals(listadoMaterias, actual02);
+	}
+	void test05_AgregarMaterias() {
+		//Arrange Preparo el codigo
+		Carrera c01 = new Carrera("Licenciatura en Sistemas", "Lic. Sist.","071/08");	
+		Materia m01 = new Materia("Programacion II", "Prog. II",AnioAcademico.III);
+		String listadoMaterias[] = {"Programacion II"};
+		
+		//Act    Ejecuta
+		boolean actual01= c01.addMateria(m01);
+		boolean actual02= c01.addMateria(m01);
+		String [] actual03 = c01.getMateriaS(AnioAcademico.III);
+		
+		//Assert Controla
+		assertEquals(true, actual01);
+		assertEquals(false, actual01);
+		assertEquals(listadoMaterias, actual02);
+	}
 	
 }
