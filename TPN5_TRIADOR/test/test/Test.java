@@ -215,33 +215,46 @@ class Test {
 		Carrera c01 = new Carrera("Licenciatura en Sistemas", "Lic. Sist.","071/08");	
 		Alumno m01 = new Alumno("Daniela","Triador","36965115", "19063","Ingenieria en Sistemas");
 		Alumno m02 = new Alumno("Daniela","Triador","36965115", "19063","Ingenieria en Sistemas");
-		Alumno m02 = new Alumno("Daniela","Triador","36965115", "19594","Licenciatura en Sistemas");
+		Alumno m03 = new Alumno("Daniela","Triador","36965115", "19594","Licenciatura en Sistemas");
 		
 		//Act    Ejecuta
-		boolean actual01= c01.addMateria(m01);
-		boolean actual02= c01.addMateria(m01);
-		boolean actual03= c01.addMateria(m01);
+		boolean actual01= c01.addAlumno(m01);
+		boolean actual02= c01.addAlumno(m01);
+		boolean actual03= c01.addAlumno(m01);
 		
 		//Assert Controla
 		assertEquals(true, actual01);
 		assertEquals(true, actual01);
 		assertEquals(false, actual02);
 	}
+	
+	//CORREGIR
+	
 	void test08_AlumnosDeLaCarrera() {
 		//Arrange Preparo el codigo
-		Carrera c01 = new Carrera("Licenciatura en Sistemas", "Lic. Sist.","071/08");	
+		Materia m01 = new Materia("Programacion II", "Prog.",AnioAcademico.III);
+		String anioCalendario = "2019";
+		String fechaInicio = "01/01";
+		String fechaFin = "12/12";
 		Alumno m01 = new Alumno("Daniela","Triador","36965115", "19063","Ingenieria en Sistemas");
 		Alumno m02 = new Alumno("Daniela","Triador","36965115", "19063","Ingenieria en Sistemas");
-		Alumno m02 = new Alumno("Daniela","Triador","36965115", "19594","Licenciatura en Sistemas");
-		
+		Alumno m03 = new Alumno("Daniela","Triador","36965115", "19594","Licenciatura en Sistemas");
+		Alumnos [] = (m01, m02);
+		Implementacion imp01 = new Implementacion(m01, anioCalendario, fechaInicio, fechaFin);
+				
 		//Act    Ejecuta
-		boolean actual01= c01.addMateria(m01);
-		boolean actual02= c01.addMateria(m01);
-		boolean actual03= c01.addMateria(m01);
-		
+				
+		boolean actual01= imp01.getMateria();
+		String actual02 = imp01.getAnioCalendario();
+		String actual03 = imp01.getFechaInicio();
+		String actual04 = imp01.getFechaFin();
+		Alumnos[] actual05 = imp01.getListadoAlumnos().length();
+				
 		//Assert Controla
-		assertEquals(true, actual01);
-		assertEquals(true, actual01);
-		assertEquals(false, actual02);
-	}
+		assertEquals(m01, actual01);
+		assertEquals(m01, actual02);
+		assertEquals(m01, actual03);
+		assertEquals(m01, actual04);
+		assertArrayEquals(listadoAlumnos, actual05);
+			}
 }
